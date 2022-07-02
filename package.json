@@ -1,23 +1,24 @@
 {
   "name": "ogf-tracker",
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 4173",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
-  },
-  "dependencies": {
-    "vue": "^3.2.37",
-    "vue-router": "^4.0.16"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.1.0",
-    "@vitejs/plugin-vue": "^2.3.3",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "eslint": "^8.5.0",
-    "eslint-plugin-vue": "^9.0.0",
-    "prettier": "^2.5.1",
-    "vite": "^2.9.12"
-  }
+    "tailwindcss": "^3.1.4"
+  },
+  "scripts": {
+    "build:css": "tailwind build styles/style.css -o dist/output.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodd7/ogf-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodd7/ogf-tracker/issues"
+  },
+  "homepage": "https://github.com/rodd7/ogf-tracker#readme"
 }
