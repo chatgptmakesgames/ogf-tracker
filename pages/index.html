@@ -1,32 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- <link rel="icon" href="/favicon.ico" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/dist/output.css" rel="stylesheet" />
-    <link href="/styles/navbar.css" rel="stylesheet" />
-    <title>OGFTracker</title>
-  </head>
 
-  <body>
-    <div id="front">
-      <img id="flightLogo" src="../assets/flightLogo.png" />
-      <p id="mainText" class="phase">OGFLiveFlight</p>
-    </div>
-    <div id="navbar">
-      <ul class="nav">
-        <li class="nav"><a class="nav" id="NationIndex" href="#">Flight Tracker</a></li>
-        <li class="nav"><a class="nav" href="#">Train Tracker</a></li>
-        <li class="nav"><a class="nav" href="#">NationIndex</a></li>
-        <li class="nav"><a class="nav" href="#">Miscellaneous</a></li>
-        <li class="nav"><b id="timeTxt">00:41</b></li>
-      </ul>
-    </div>
-    <hr id="line" />
-    <br/>
+<head>
+  <meta charset="UTF-8" />
+  <!-- <link rel="icon" href="/favicon.ico" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="/node_modules/jquery/dist/jquery.js" rel="stylesheet"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+
+  <script src="/dist/index.js"></script>
+
+  <link href="/dist/output.css" rel="stylesheet" />
+  <link href="/styles/navbar.css" rel="stylesheet" />
 
 
+  <title>OGFTracker</title>
+</head>
 
-  </body>
+<body>
+  <div id="front">
+    <img id="flightLogo" src="../assets/flightLogo.png" />
+    <p id="mainText" class="phase">OGFLiveFlight</p>
+  </div>
+  <div id="navbar">
+    <ul class="nav">
+      <li class="nav"><a class="nav" id="NationIndex" href="#">Flight Tracker</a></li>
+      <li class="nav"><a class="nav" href="#">Train Tracker</a></li>
+      <li class="nav">
+        <a class="nav" id="NationIndex" href="#">NationIndex</a>
+        <div
+          class="w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none overlay dropdown"
+          role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" id="dropdown_NationIndex"
+          style="position:absolute">
+          <div class="py-1" role="none">
+            <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+              id="menu-item-0">Edit</a>
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+              id="menu-item-1">Duplicate</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+              id="menu-item-2">Archive</a>
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+              id="menu-item-3">Move</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+              id="menu-item-4">Share</a>
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-5">Add
+              to
+              favorites</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+              id="menu-item-6">Delete</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav"><a class="nav" href="#">Miscellaneous</a></li>
+      <li class="nav"><b id="timeTxt">00:41</b></li>
+    </ul>
+  </div>
+
+
+  <hr id="line" />
+  <br>
+
+  <div id="map"></div>
+
+
+</body>
+
 </html>

@@ -1,63 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-@import url('http://fonts.cdnfonts.com/css/bahnschrift');
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("http://fonts.cdnfonts.com/css/bahnschrift");
 
+ul.nav {
+	font-family: "Inter", sans-serif;
+	list-style-type: none;
+	margin: 0;
+	padding: 12px;
+}
+li.nav {
+	display: inline;
+	font-size: 13px;
+	padding: 30px;
+}
 
-    ul.nav {
-        font-family: 'Inter', sans-serif;
-        list-style-type: none;
-        margin: 0;
-        padding: 12px;
-    }
-    li.nav {
-        display: inline;
-        font-size:13px;
-        padding: 30px;
-    }
+#line {
+	border-width: 0;
+	height: 0.7px;
+	border-width: 0;
+	color: rgb(204, 204, 204);
+	background-color: rgb(204, 204, 204);
+}
 
-    #line {
-        border-width: 0;
-        height:0.7px;
-        border-width:0;
-        color:rgb(204, 204, 204);
-        background-color:rgb(204, 204, 204);
-    }
+a.nav {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
 
-    a.nav {
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-    }
+a.nav:hover {
+	color: rgb(29, 182, 253);
+	transition: 0.4s;
+}
 
-    a.nav:hover {
-        color: rgb(29, 182, 253);
-        transition: 0.4s;
-    }
+#navbar {
+	padding-left: 1500px;
+}
 
-    #navbar {
-        padding-left: 1500px;
-    }
+#flightLogo {
+	width: 36px;
+	height: 36px;
+	margin-top: 5px;
+}
+#mainText {
+	font-family: "Bahnschrift", sans-serif;
+	font-size: 25px;
+	position: absolute;
+	font-weight: bold;
+	left: 45px;
+	top: 7px;
+	background-image: linear-gradient(90deg, rgba(9, 116, 199, 255), #00c7bd);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+}
+#front {
+	left: 300px;
+	position: absolute;
+}
 
-    #flightLogo {
-        width: 36px;
-        height: 36px;
-        margin-top: 5px;
-        
-    }
-    #mainText {
-        font-family: 'Bahnschrift', sans-serif;
-        font-size: 25px;
-        position: absolute;
-        font-weight: bold;
-        left: 45px;
-        top: 7px;
-        background-image: linear-gradient(90deg, rgba(9,116,199,255), #00c7bd);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -moz-background-clip: text;
-        -moz-text-fill-color: transparent;
-    }
-    #front {
-        left: 300px;
-        position: absolute;
-    }
+.dropdown {
+	/* display: none; */
+	margin-top: 11px;
+}
+
+#map {
+	height: 100px;
+}
+
+.overlay {
+	position: relative;
+}
+.overlay .dropdown {
+	position: absolute;
+	z-index: 2;
+}
