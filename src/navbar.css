@@ -21,13 +21,13 @@ li.nav {
 	background-color: rgb(204, 204, 204);
 }
 
-a.nav {
+.nav {
 	text-decoration: none;
 	color: black;
 	font-weight: bold;
 }
 
-a.nav:hover {
+.nav:hover {
 	color: rgb(29, 182, 253);
 	transition: 0.4s;
 }
@@ -36,18 +36,20 @@ a.nav:hover {
 	padding-left: 1500px;
 }
 
-#flightLogo {
-	width: 36px;
-	height: 36px;
-	margin-top: 5px;
+.flightLogo {
+	width: 40px;
+	height: 40px;
+	margin-top: 4px;
+	float: left;
 }
 #mainText {
 	font-family: "Bahnschrift", sans-serif;
 	font-size: 25px;
-	position: absolute;
+	margin: 0;
+	padding-left: 10px;
+	padding-top: 8px;
+	float: right;
 	font-weight: bold;
-	left: 45px;
-	top: 7px;
 	background-image: linear-gradient(90deg, rgba(9, 116, 199, 255), #00c7bd);
 	background-clip: text;
 	-webkit-background-clip: text;
