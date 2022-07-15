@@ -1,0 +1,42 @@
+[
+	{
+		"country": "Ohemia",
+		"name": {
+			"officialName": "Federation Of Ohemia",
+			"nativeName": "Trāspotanyon Son Oheme̊"
+		},
+		"flag": "https://wiki.opengeofiction.net/images/9/94/Ohemian_Imperial_Flag_Large.png"
+	},
+	{
+		"country": "Federal States (FSA)",
+		"name": {
+			"officialName": "Federal States of Archanta",
+			"nativeName": ""
+		},
+		"flag": "https://wiki.opengeofiction.net/images/6/6f/Flag_of_the_FSA.svg"
+	},
+	{
+		"country": "Ardencia",
+		"name": {
+			"officialName": "Ardencia",
+			"nativeName": "Ardence / Ardencja"
+		},
+		"flag": "https://wiki.opengeofiction.net/images/0/08/Flag_of_Ardencia.svg"
+	},
+	{
+		"country": "Plevia",
+		"name": {
+			"officialName": "Republic of Plevia",
+			"nativeName": "Repubblica Pleviana"
+		},
+		"flag": "https://wiki.opengeofiction.net/images/2/2f/Flag_of_Plevia.svg"
+	},
+	{
+		"country": "Izaland",
+		"name": {
+			"officialName": "Republic of Izaland",
+			"nativeName": "華邦共和國"
+		},
+		"flag": "https://wiki.opengeofiction.net/images/7/79/Izaland_flag.png"
+	}
+]

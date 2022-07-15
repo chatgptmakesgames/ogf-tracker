@@ -1,0 +1,13 @@
+[
+	{
+		"ID": "CRS",
+		"name": "Corrostance Ohemian International Airport",
+		"coordinates": [-34.85432, 35.80759],
+		"country": "Ohemia",
+		"city": "Corrostance",
+		"class": "A",
+		"WAAT": "CRS",
+		"ANACA": "NOCR",
+		"runway": 3
+	}
+]

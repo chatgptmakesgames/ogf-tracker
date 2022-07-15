@@ -6,11 +6,13 @@ ul.nav {
 	list-style-type: none;
 	margin: 0;
 	padding: 12px;
+	position: relative;
 }
 li.nav {
 	display: inline;
 	font-size: 13px;
 	padding: 30px;
+	position: relative;
 }
 
 #line {
@@ -25,6 +27,7 @@ li.nav {
 	text-decoration: none;
 	color: black;
 	font-weight: bold;
+	position: relative;
 }
 
 .nav:hover {
@@ -34,6 +37,8 @@ li.nav {
 
 #navbar {
 	padding-left: 1500px;
+	position: relative;
+	z-index: 999;
 }
 
 .flightLogo {
@@ -63,7 +68,6 @@ li.nav {
 }
 
 .dropdown {
-	/* display: none; */
 	margin-top: 11px;
 }
 

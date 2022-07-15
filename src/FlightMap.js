@@ -1,23 +1,24 @@
 import "./map.css";
+import React, { Component } from "react";
 
 import { MapContainer } from "react-leaflet/MapContainer";
 import { TileLayer } from "react-leaflet/TileLayer";
 import { useMap } from "react-leaflet/hooks";
 import { Marker } from "react-leaflet/Marker";
-import { Popup } from "react-leaflet/Popup";
+import { NightRegion } from "react-leaflet-night-region";
+
+import airports from "./data/airport-locations.json";
 
 export default function FlightMap() {
 	return (
-		<MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+		<MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
 			<TileLayer
-				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+				attribution='<a href="//opengeofiction.net">OpenGeofiction</a> contributors (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-NC-SA</a>)'
+				url="https://tile.opengeofiction.net/ogf-carto/{z}/{x}/{y}.png"
 			/>
-			<Marker position={[51.505, -0.09]}>
-				<Popup>
-					A pretty CSS3 popup. <br /> Easily customizable.
-				</Popup>
-			</Marker>
+			{airports.map((airport) => (
+				<Marker key={airport.ID} position={airport.coordinates}></Marker>
+			))}
 		</MapContainer>
 	);
 }

@@ -134,7 +134,7 @@ export default function Navbar() {
 														"block px-4 py-2 text-xs",
 													)}
 												>
-													/Placeholder
+													Map Distance Calculator
 												</a>
 											)}
 										</Menu.Item>
