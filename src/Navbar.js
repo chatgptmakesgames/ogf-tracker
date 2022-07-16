@@ -2,33 +2,42 @@ import "./navbar.css";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
+import ReactDOM from "react-dom/client";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(" ");
+}
+function Time() {
+	return new Date().toLocaleTimeString();
 }
 
 export default function Navbar() {
 	return (
 		<div className="Navbar">
 			<div id="front">
-				<img className="flightLogo" src={require("./assets/flightLogo.png")} />
-				<p id="mainText" class="phase">
+				<img
+					className="flightLogo md:float-left"
+					src={require("./assets/flightLogo.png")}
+				/>
+				<p id="mainText" className="phase hidden md:block md:overflow-hidden;">
 					OGFLiveFlight
 				</p>
 			</div>
 			<div id="navbar">
-				<ul class="nav">
-					<li class="nav">
-						<a class="nav" id="NationIndex" href="#">
+				<ul className="nav">
+					<li className="nav">
+						<a className="nav" id="NationIndex" href="#">
 							Flight Tracker
 						</a>
 					</li>
-					<li class="nav">
-						<a class="nav" href="#">
+					<li className="nav">
+						<a className="nav" href="#">
 							Train Tracker
 						</a>
 					</li>
-					<li class="nav">
+					<li className="nav">
 						<Menu as="div" className="relative inline-block text-left">
 							<div>
 								<Menu.Button className="nav">
@@ -86,7 +95,7 @@ export default function Navbar() {
 						</Menu>
 					</li>
 
-					<li class="nav">
+					<li className="nav">
 						<Menu as="div" className="relative inline-block text-left">
 							<div>
 								<Menu.Button className="nav">
@@ -160,13 +169,13 @@ export default function Navbar() {
 							</Transition>
 						</Menu>
 					</li>
-					<li class="nav">
-						<b className="timeTxt">TIME</b>
+					<li className="nav">
+						<b className="timeTxt">time</b>
 					</li>
 				</ul>
 			</div>
 
-			<hr id="line" />
+			<hr id="line" className="hidden md:block" />
 		</div>
 	);
 }

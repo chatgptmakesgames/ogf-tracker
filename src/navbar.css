@@ -36,7 +36,7 @@ li.nav {
 }
 
 #navbar {
-	padding-left: 1500px;
+	padding-left: 60%;
 	position: relative;
 	z-index: 999;
 }
@@ -81,4 +81,20 @@ li.nav {
 .overlay .dropdown {
 	position: absolute;
 	z-index: 2;
+}
+
+@media only screen and (max-width: 768px) {
+	li.nav {
+		display: inline;
+		font-size: 10px;
+		padding: 0px;
+		position: relative;
+		float: right;
+	}
+
+	.flightLogo {
+		width: 40px;
+		height: 40px;
+		padding-right: 100px;
+	}
 }
