@@ -1,29 +1,14 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-// import ReactDOM from 'react-dom/client'
+import React from "react";
+import { MapContainer, TileLayer } from "react-leaflet";
+import "./Map.css";
 
-
-// const root = ReactDOM.createRoot(
-//     document.getElementById('root')
-//   );
-
-  
-export default function Map(){
-    const [time, setTime] = useState();
-
-    useEffect(() => {
-        setInterval(() => {
-            setTime(() => new Date().toUTCString().toString().split(" ")[4]);
-        }, 1000);
-    });
-
-    return(
-        <div className="Map">
-            <p>this is another test</p>
-            <p>{time}</p>
-            <p>test time works in UTC</p>
-        </div>
-    );
+export default function FlightMap() {
+	return (
+		<MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
+			<TileLayer
+				attribution='<a href="//opengeofiction.net">OpenGeofiction</a> contributors (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-NC-SA</a>)'
+				url="https://tile.opengeofiction.net/ogf-carto/{z}/{x}/{y}.png"
+			/>
+		</MapContainer>
+	);
 }
-
-// export default Map;
