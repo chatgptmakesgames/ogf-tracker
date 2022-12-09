@@ -1,16 +1,25 @@
-import Navbar from "./Navbar";
-import FlightMap from "./FlightMap";
-import "./index.css";
-import TopCard from "./TopCard";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-	return (
-		<>
-			<Navbar />
-			<TopCard />
-			<FlightMap />
-		</>
-	);
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
