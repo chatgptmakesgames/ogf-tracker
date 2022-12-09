@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
+// import ReactDOM from 'react-dom/client'
 
 
-function Map(){
+// const root = ReactDOM.createRoot(
+//     document.getElementById('root')
+//   );
+
+  
+export default function Map(){
+    const [time, setTime] = useState();
+
+    useEffect(() => {
+        setInterval(() => {
+            setTime(() => new Date().toUTCString().toString().split(" ")[4]);
+        }, 1000);
+    });
+
     return(
-        <div>
-            <Map>
-                <p>this is a test</p>
-            </Map>
+        <div className="Map">
+            <p>this is another test</p>
+            <p>{time}</p>
+            <p>test time works in UTC</p>
         </div>
     );
 }
 
-export default Map;
+// export default Map;
