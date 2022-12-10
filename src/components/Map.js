@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, Polyline } from "react-leaflet";
 import "./Map.css";
 
 function callRelation(id) {
@@ -12,16 +12,32 @@ function callRelation(id) {
 					Accept: "application/json",
 					"Content-Type": "application/json",
 				},
-				body: "[out:json];rel(" + id + ");(._;>>;);out;",
+				body: "[out:json];rel(" + id + ");(._;>;);out;",
 			},
+            
 		);
-		const answer = await api.json();
-		console.log(answer.elements.length);
-		console.log(answer.elements[0].lat + ", " + answer.elements[0].lon);
+
+		const request = await api.json();
+        let path = [];
+		// console.log(request.elements);
+
+        for (let pair of request.elements){
+            if (pair.type === "node"){
+                path.push([pair.lat, pair.lon]);
+            }    
+        }
+        console.log(path)
+
 	})();
 }
 
-callRelation(188466);
+const limeOptions = {color:'lime'}
+const test = [[1,2],[3,1]]
+console.log(test)
+let test1 = callRelation(188466);
+
+console.log(test1);
+
 
 export default function FlightMap() {
 	return (
@@ -32,6 +48,7 @@ export default function FlightMap() {
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			/>
+            <Polyline pathOptions={limeOptions} positions={test}/>
 		</MapContainer>
 	);
 }
