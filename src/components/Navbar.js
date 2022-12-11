@@ -17,9 +17,8 @@ export default function Navbar() {
 
 	return (
 		<div className="Navbar">
-			<p>this is another test</p>
 			<p>{time}</p>
-			<p>test time works in UTC</p>
+			<p>bruv it works in UTC</p>
 		</div>
 	);
 }
