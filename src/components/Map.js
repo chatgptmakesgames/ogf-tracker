@@ -1,5 +1,7 @@
 import React from "react";
-import { MapContainer, TileLayer, Polyline } from "react-leaflet";
+import L from "leaflet";
+import { MapContainer, TileLayer, Polyline, Marker} from "react-leaflet";
+import { useState, useEffect } from "react";
 import "./Map.css";
 
 async function callRelation(id) {
@@ -11,50 +13,76 @@ async function callRelation(id) {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
-			body: "[out:json];rel(" + id + ");(._;>;);out;",
+			body: "[out:json];rel(" + id + ");out geom;",
 		},
 	);
 
 	const request = await api.json();
 
 	let path = [];
+	let markers = [];
+	let tags = {};
 	console.log(request.elements);
-	for (let pair of request.elements) {
-		if (pair.type === "node") {
-			path.push([pair.lat, pair.lon]);
-		}
+	for (let element of request.elements){
+		console.log(element.members)
+			for (let member of element.members){
+				if (member.type === "way" && member.role === ""){ // "" means rail
+					for (let geo of member.geometry){
+						path.push([geo.lat, geo.lon]);
+					}
+				}
+				if (member.type === "node" && member.role === "stop"){
+					markers.push([member.lat, member.lon]);
+				}
+			}
+			for (const [key, value] of Object.entries(element.tags)){
+					if (key === 'name'){ tags[key] =  value} //[2] == to
+					if (key === 'colour'){ tags[key] = value;} //[0] == colour
+					if (key === 'from'){ tags[key] = value;} //[1] == from
+					if (key === 'to'){ tags[key] = value;} //[2] == to				
+			}
 	}
 
-	return path.slice(0, 5);
+	
+	return {
+		path: path,
+		markers: markers,
+		tags: tags
+	};
 }
 
 async function retreive() {
-	let test1 = await callRelation(188466);
-	console.log(test1);
-	return test1;
+	let retreive = await callRelation(326404);
+	return retreive;
 }
-const blackOptions = { color: "black" };
+
 
 export default function Map() {
-	const [test, setTest] = React.useState([]);
-	React.useEffect(() => {
-		retreive().then((test) => {
-			// When data is received, assign it to the state,
-			// so that React is aware of the change
-			// and re-renders the component with updated data
-			setTest(test);
+	const [data, setData] = useState({path: [], markers: [], tags: []});
+	useEffect(() => {
+		retreive().then((data) => {
+			setData(data);
 		});
-	}, []);
+	},[data]);
 
 	return (
 		<MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
 			<TileLayer
 				attribution='<a href="//opengeofiction.net">OpenGeofiction</a> contributors (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-NC-SA</a>)'
 				url="https://tile.opengeofiction.net/ogf-carto/{z}/{x}/{y}.png"
-				// attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-				// url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			/>
-			<Polyline pathOptions={blackOptions} positions={test} />
+			<Polyline pathOptions={{color: data.tags.colour, weight: 5, opacity: 0.9}} positions={data.path} />
+			{data.markers.map((x) => (
+				<Marker
+					key={x}
+					position={x}
+				></Marker>
+			))}	
+			
+				
+			
 		</MapContainer>
 	);
 }
+
+
