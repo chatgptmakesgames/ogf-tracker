@@ -1,6 +1,6 @@
 import React from "react";
-import L from "leaflet";
-import { MapContainer, TileLayer, Polyline, Marker} from "react-leaflet";
+// import L from "leaflet";
+import { MapContainer, TileLayer, Polyline, Marker, Circle, CircleMarker} from "react-leaflet";
 import { useState, useEffect } from "react";
 import "./Map.css";
 
@@ -51,11 +51,22 @@ async function callRelation(id) {
 	};
 }
 
+
+// var list = [326404, 334173];
+// var num = 326404;
+
 async function retreive() {
 	let retreive = await callRelation(326404);
 	return retreive;
 }
 
+// retreive(326404);
+
+// async function retreive(list){
+// 	for (const rel of list){
+// 		await callRelation(rel)
+// 	}
+// }
 
 export default function Map() {
 	const [data, setData] = useState({path: [], markers: [], tags: []});
@@ -71,12 +82,10 @@ export default function Map() {
 				attribution='<a href="//opengeofiction.net">OpenGeofiction</a> contributors (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-NC-SA</a>)'
 				url="https://tile.opengeofiction.net/ogf-carto/{z}/{x}/{y}.png"
 			/>
-			<Polyline pathOptions={{color: data.tags.colour, weight: 5, opacity: 0.9}} positions={data.path} />
+			<Polyline pathOptions={{color: data.tags.colour, weight: 5}} positions={data.path} />
 			{data.markers.map((x) => (
-				<Marker
-					key={x}
-					position={x}
-				></Marker>
+				<CircleMarker radius={4} key={x} center={x} color={data.tags.colour} fillColor={"white"} fillOpacity={1}>
+				</CircleMarker>
 			))}	
 			
 				
