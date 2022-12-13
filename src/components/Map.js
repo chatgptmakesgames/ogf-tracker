@@ -56,8 +56,14 @@ async function callRelation(id) {
 // var num = 326404;
 
 async function retreive() {
-	let retreive = await callRelation(326404);
-	return retreive;
+	let vals = [326404, 334173, 335847, 325718, 312320];
+	let set = [];
+
+	for (let val of vals){
+		let retreive = await callRelation(val);
+		set.push(retreive)
+	}
+	return set;
 }
 
 // retreive(326404);
@@ -69,7 +75,7 @@ async function retreive() {
 // }
 
 export default function Map() {
-	const [data, setData] = useState({path: [], markers: [], tags: []});
+	const [data, setData] = useState([{path: [], markers: [], tags: []}]);
 	useEffect(() => {
 		retreive().then((data) => {
 			setData(data);
@@ -82,12 +88,19 @@ export default function Map() {
 				attribution='<a href="//opengeofiction.net">OpenGeofiction</a> contributors (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-NC-SA</a>)'
 				url="https://tile.opengeofiction.net/ogf-carto/{z}/{x}/{y}.png"
 			/>
-			<Polyline pathOptions={{color: data.tags.colour, weight: 5}} positions={data.path} />
-			{data.markers.map((x) => (
-				<CircleMarker radius={4} key={x} center={x} color={data.tags.colour} fillColor={"white"} fillOpacity={1}>
-				</CircleMarker>
-			))}	
-			
+
+		{data.map((x, index) => (
+  			<div key={index}>
+    			<Polyline pathOptions={{color: x.tags.colour, weight: 5}} positions={x.path} />
+    				{x.markers.map((y) => (
+      					<CircleMarker radius={4} key={y} center={y} color={x.tags.colour} fillColor={"white"} fillOpacity={1}>
+      					</CircleMarker>
+    			))}
+  			</div>
+		))}
+				
+					
+
 				
 			
 		</MapContainer>
@@ -95,3 +108,8 @@ export default function Map() {
 }
 
 
+// {/* <Polyline pathOptions={{color: data[0].tags.colour, weight: 5}} positions={data[0].path} />
+//  				{data[0].markers.map((x) => (
+// 					<CircleMarker radius={4} key={x} center={x} color={data[0].tags.colour} fillColor={"white"} fillOpacity={1}>
+// 					</CircleMarker>
+// 				))} */}
