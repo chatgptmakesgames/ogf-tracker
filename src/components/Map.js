@@ -1,6 +1,9 @@
 import React from "react";
-// import L from "leaflet";
-import { MapContainer, TileLayer, Polyline, Marker, Circle, CircleMarker} from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Circle, CircleMarker, Polyline} from "react-leaflet";
+import "leaflet-polylineoffset";
+// import "./PolyLineOffset";
+
+// import { LeafletTrackingMarker } from "react-leaflet-tracking-marker";
 import { useState, useEffect } from "react";
 import "./Map.css";
 
@@ -56,7 +59,7 @@ async function callRelation(id) {
 // var num = 326404;
 
 async function retreive() {
-	let vals = [326404, 334173, 335847, 325718, 312320];
+	let vals = [326404, 334173, 335847, 325718, 312320, 335340];
 	let set = [];
 
 	for (let val of vals){
@@ -66,12 +69,29 @@ async function retreive() {
 	return set;
 }
 
+export const CustomPolyline = (props) => {
+	return <Polyline offset={5} {...props} />
+  }
+
 // retreive(326404);
 
 // async function retreive(list){
 // 	for (const rel of list){
 // 		await callRelation(rel)
 // 	}
+// }
+
+// function TestMarker({data}){
+// 	const {lat, lon} = data;
+// 	const [prevPos, setPrevPos] = useState([lat, lon]);
+
+// 	useEffect(() =>{
+// 		if (prevPos[1] !== lon && prevPos[0] !== lat){
+// 			setPrevPos([lat, lon]);
+// 		}
+// 	}, [lat, lon, prevPos])
+
+// 	return <LeafletTrackingMarker position={[lat, lon]}
 // }
 
 export default function Map() {
@@ -91,21 +111,24 @@ export default function Map() {
 
 		{data.map((x, index) => (
   			<div key={index}>
-    			<Polyline pathOptions={{color: x.tags.colour, weight: 5}} positions={x.path} />
-    				{x.markers.map((y) => (
-      					<CircleMarker radius={4} key={y} center={y} color={x.tags.colour} fillColor={"white"} fillOpacity={1}>
-      					</CircleMarker>
-    			))}
+    			<Polyline pathOptions={{color: x.tags.colour, weight: 4}} positions={x.path} offset={5}/>
+    				
   			</div>
 		))}
 				
 					
 
-				
+
 			
 		</MapContainer>
 	);
 }
+
+
+//{x.markers.map((y) => (
+//	<CircleMarker radius={4} key={y} center={y} color={x.tags.colour} fillColor={"white"} fillOpacity={1}>
+//	</CircleMarker>
+//))}
 
 
 // {/* <Polyline pathOptions={{color: data[0].tags.colour, weight: 5}} positions={data[0].path} />
