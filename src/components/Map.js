@@ -65,9 +65,7 @@ async function callRelation(id) {
 // var num = 326404;
 
 async function retreive() {
-	let vals = [
-		326404, 334173, 335847, 325718, 312320, 335340, 338435, 338333, 338327,
-	];
+	let vals = [326404, 334173, 335847, 325718, 312320, 335340, 338435];
 	let set = [];
 
 	for (let val of vals) {
