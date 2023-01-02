@@ -1,13 +1,5 @@
 import React from "react";
-import {
-	MapContainer,
-	TileLayer,
-	Marker,
-	Circle,
-	CircleMarker,
-	Polyline,
-} from "react-leaflet";
-import L from "leaflet";
+import { MapContainer, TileLayer, Marker, Polyline } from "react-leaflet";
 import "../util/leaflet.polylineoffset";
 
 // import { LeafletTrackingMarker } from "react-leaflet-tracking-marker";

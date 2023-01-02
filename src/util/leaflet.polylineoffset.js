@@ -1,3 +1,6 @@
+import define from "requirejs";
+import L from "leaflet";
+
 (function (factory, window) {
 	if (typeof define === "function" && define.amd) {
 		define(["leaflet"], factory);
