@@ -7,8 +7,7 @@ import {
 	CircleMarker,
 	Polyline,
 } from "react-leaflet";
-// import "leaflet-polylineoffset";
-// import "./PolyLineOffset";
+import L from "leaflet";
 import "../util/leaflet.polylineoffset";
 
 // import { LeafletTrackingMarker } from "react-leaflet-tracking-marker";
@@ -130,15 +129,16 @@ export default function Map() {
 						offset={2}
 					/>
 					{x.markers.map((y) => (
-						<CircleMarker
-							radius={4}
+						<Marker
+							// radius={4}
 							key={y}
-							center={y}
-							color={x.tags.colour}
-							fillColor={"white"}
-							fillOpacity={1}
-							offset={2}
-						></CircleMarker>
+							// center={y}
+							// color={x.tags.colour}
+							// fillColor={"white"}
+							// fillOpacity={1}
+							position={y}
+							// icon={icons(10)}
+						></Marker>
 					))}
 				</div>
 			))}
