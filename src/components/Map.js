@@ -1,10 +1,16 @@
+import L from "leaflet";
 import React from "react";
 import { MapContainer, TileLayer, Marker, Polyline } from "react-leaflet";
 import "../util/leaflet.polylineoffset";
-
 // import { LeafletTrackingMarker } from "react-leaflet-tracking-marker";
 import { useState, useEffect } from "react";
 import "./Map.css";
+
+
+const customIcon = new L.Icon({
+	iconUrl: require("../resources/Soprasser_metro.png"),
+	iconSize: [20,20]
+});
 
 async function callRelation(id) {
 	const api = await fetch(
@@ -65,7 +71,7 @@ async function callRelation(id) {
 // var num = 326404;
 
 async function retreive() {
-	let vals = [326404, 334173, 335847, 325718, 312320, 335340, 338435];
+	let vals = [326404, 334173, 335847, 325718, 312320, 350352];
 	let set = [];
 
 	for (let val of vals) {
@@ -122,6 +128,7 @@ export default function Map() {
 						<Marker
 							// radius={4}
 							key={y}
+							icon={customIcon}
 							// center={y}
 							// color={x.tags.colour}
 							// fillColor={"white"}
@@ -131,6 +138,7 @@ export default function Map() {
 						></Marker>
 					))}
 				</div>
+				
 			))}
 		</MapContainer>
 	);
