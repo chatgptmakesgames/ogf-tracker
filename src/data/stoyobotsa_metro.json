@@ -1,0 +1,115 @@
+{
+	"header": ["350537"],
+	"350537": {
+		"version": 0.6,
+		"generator": "Overpass API 0.7.58.2 2b5354b1",
+		"osm3s": {
+			"timestamp_osm_base": "2023-02-06T09:55:46Z",
+			"copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+		},
+		"elements": [
+			{
+				"type": "relation",
+				"id": 350537,
+				"bounds": {
+					"minlat": 44.4956105,
+					"minlon": 98.3214835,
+					"maxlat": 44.5358294,
+					"maxlon": 98.3769694
+				},
+				"members": [
+					{
+						"type": "way",
+						"ref": 28296753,
+						"role": "",
+						"geometry": [
+							{ "lat": 44.5186407, "lon": 98.3214835 },
+							{ "lat": 44.4992173, "lon": 98.3386415 },
+							{ "lat": 44.4975543, "lon": 98.3405646 },
+							{ "lat": 44.4964608, "lon": 98.3426183 },
+							{ "lat": 44.4958438, "lon": 98.3447244 },
+							{ "lat": 44.4956105, "lon": 98.3468045 },
+							{ "lat": 44.495668, "lon": 98.3487797 },
+							{ "lat": 44.4959234, "lon": 98.3505719 },
+							{ "lat": 44.4962838, "lon": 98.3521024 },
+							{ "lat": 44.4966562, "lon": 98.3532928 },
+							{ "lat": 44.4969479, "lon": 98.3540646 },
+							{ "lat": 44.4970656, "lon": 98.3543393 },
+							{ "lat": 44.5045476, "lon": 98.3729748 },
+							{ "lat": 44.5046153, "lon": 98.3731215 },
+							{ "lat": 44.5048188, "lon": 98.3735124 },
+							{ "lat": 44.5051582, "lon": 98.374074 },
+							{ "lat": 44.5056337, "lon": 98.3747341 },
+							{ "lat": 44.5069974, "lon": 98.3760595 },
+							{ "lat": 44.5078863, "lon": 98.3765795 },
+							{ "lat": 44.5089143, "lon": 98.3769071 },
+							{ "lat": 44.5100808, "lon": 98.3769694 },
+							{ "lat": 44.5358294, "lon": 98.3751774 }
+						]
+					},
+					{
+						"type": "node",
+						"ref": 296332904,
+						"role": "stop",
+						"lat": 44.5097983,
+						"lon": 98.3293316
+					},
+					{
+						"type": "node",
+						"ref": 300595508,
+						"role": "stop",
+						"lat": 44.5008932,
+						"lon": 98.3371901
+					},
+					{
+						"type": "node",
+						"ref": 296334547,
+						"role": "stop",
+						"lat": 44.4981871,
+						"lon": 98.357211
+					},
+					{
+						"type": "node",
+						"ref": 296334065,
+						"role": "stop",
+						"lat": 44.5016279,
+						"lon": 98.3657684
+					},
+					{
+						"type": "node",
+						"ref": 296333899,
+						"role": "stop",
+						"lat": 44.5062288,
+						"lon": 98.3752843
+					},
+					{
+						"type": "node",
+						"ref": 296333733,
+						"role": "stop",
+						"lat": 44.515974,
+						"lon": 98.3765328
+					},
+					{
+						"type": "node",
+						"ref": 296333567,
+						"role": "stop",
+						"lat": 44.5213771,
+						"lon": 98.3761594
+					}
+				],
+				"tags": {
+					"colour": "#6c000a",
+					"from": "TBD",
+					"name": "Stoyobotsa M1 Me̊təŕ Tira",
+					"note": "TBD",
+					"public_transport:version": "2",
+					"ref": "M1",
+					"roundtrip": "no",
+					"route": "subway",
+					"to": "TBD",
+					"type": "route"
+				}
+			}
+		]
+	}
+}

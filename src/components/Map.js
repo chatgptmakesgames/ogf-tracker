@@ -6,10 +6,9 @@ import "../util/leaflet.polylineoffset";
 import { useState, useEffect } from "react";
 import "./Map.css";
 
-
 const customIcon = new L.Icon({
 	iconUrl: require("../resources/Soprasser_metro.png"),
-	iconSize: [20,20]
+	iconSize: [13, 13],
 });
 
 async function callRelation(id) {
@@ -71,7 +70,7 @@ async function callRelation(id) {
 // var num = 326404;
 
 async function retreive() {
-	let vals = [326404, 334173, 335847, 325718, 312320, 350352];
+	let vals = [326404, 334173, 335847, 325718, 312320, 350352, 350536, 350537];
 	let set = [];
 
 	for (let val of vals) {
@@ -138,7 +137,6 @@ export default function Map() {
 						></Marker>
 					))}
 				</div>
-				
 			))}
 		</MapContainer>
 	);
